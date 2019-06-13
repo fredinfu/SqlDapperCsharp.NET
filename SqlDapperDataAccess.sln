@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2A68C15B-6EAA-4135-8B63-D6E7B40F3E03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormUI", "..\FormUI\FormUI.csproj", "{CC12E9C2-D7B2-48CF-8E63-EFD128292BEB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC12E9C2-D7B2-48CF-8E63-EFD128292BEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC12E9C2-D7B2-48CF-8E63-EFD128292BEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC12E9C2-D7B2-48CF-8E63-EFD128292BEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC12E9C2-D7B2-48CF-8E63-EFD128292BEB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CC12E9C2-D7B2-48CF-8E63-EFD128292BEB} = {2A68C15B-6EAA-4135-8B63-D6E7B40F3E03}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B3348D1F-182A-4B08-B786-4ADF63D70AA1}
+	EndGlobalSection
+EndGlobal
