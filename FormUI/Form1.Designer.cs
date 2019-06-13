@@ -30,7 +30,7 @@
         {
             this.peopleListBox = new System.Windows.Forms.ListBox();
             this.lblLastName = new System.Windows.Forms.Label();
-            this.txtLastName = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -46,24 +46,24 @@
             // lblLastName
             // 
             this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(100, 29);
+            this.lblLastName.Location = new System.Drawing.Point(24, 31);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(76, 17);
             this.lblLastName.TabIndex = 1;
             this.lblLastName.Text = "Last Name";
             // 
-            // txtLastName
+            // txtSearch
             // 
-            this.txtLastName.Location = new System.Drawing.Point(182, 26);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(161, 22);
-            this.txtLastName.TabIndex = 2;
+            this.txtSearch.Location = new System.Drawing.Point(106, 28);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(161, 22);
+            this.txtSearch.TabIndex = 2;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(135, 64);
+            this.btnSearch.Location = new System.Drawing.Point(106, 56);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(138, 23);
+            this.btnSearch.Size = new System.Drawing.Size(161, 23);
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -73,9 +73,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(969, 450);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.txtLastName);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.peopleListBox);
             this.Name = "Form1";
@@ -89,7 +89,7 @@
 
         private System.Windows.Forms.ListBox peopleListBox;
         private System.Windows.Forms.Label lblLastName;
-        private System.Windows.Forms.TextBox txtLastName;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
     }
 }

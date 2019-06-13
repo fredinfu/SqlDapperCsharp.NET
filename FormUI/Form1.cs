@@ -16,15 +16,38 @@ namespace FormUI
         public Form1()
         {
             InitializeComponent();
+            GetAllData();
+        }
 
+        private void GetAllData()
+        {
+            var dataAccess = new DataAccess();
+            people = dataAccess.GetPeople();
+            UpdatePeopleListBox();
+        }
+
+        private void UpdatePeopleListBox()
+        {
             peopleListBox.DataSource = people;
             peopleListBox.DisplayMember = "FullInfo";
         }
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
+            if (txtSearch.Text.Trim() == "")
+            {
+                GetAllData();
+                return;
+            }
+
+            SearchByText();
+        }
+
+        private void SearchByText()
+        {
             var dataAccess = new DataAccess();
-            people = dataAccess.GetPeople(txtLastName.Text);
+            people = dataAccess.GetPeopleByLastName(txtSearch.Text);
+            UpdatePeopleListBox();
         }
     }
 }
