@@ -49,5 +49,52 @@ namespace FormUI
             people = dataAccess.GetPeopleByLastName(txtSearch.Text);
             UpdatePeopleListBox();
         }
+
+        private void BtnStartCreatePerson_Click(object sender, EventArgs e)
+        {
+            btnUpdate.Visible = false;
+            btnRemove.Visible = false;
+            btnCreate.Visible = true;
+            txtFirstName.Focus();
+        }
+
+        private void BtnCreate_Click(object sender, EventArgs e)
+        {
+            if (!SubmitValidation())
+            {
+                MessageBox.Show("First Name, Last Name and Email cannot be empty!");
+                txtFirstName.Focus();
+                return;
+            }
+
+            var person = new Person
+            {
+                FirstName = txtFirstName.Text,
+                LastName = txtLastName.Text,
+                EmailAddress = txtEmailAddress.Text,
+                PhoneNumber = txtPhoneNumber.Text
+            };
+
+            var dataAccess = new DataAccess();
+            people = dataAccess.AddPeople(person);
+            CleanPanel1();
+            GetAllData();
+            txtFirstName.Focus();
+        }
+
+        private bool SubmitValidation()
+        {
+            if ( String.IsNullOrWhiteSpace(txtFirstName.Text) || String.IsNullOrWhiteSpace(txtLastName.Text) || String.IsNullOrWhiteSpace(txtEmailAddress.Text) )
+                return false;
+            return true;
+        }
+
+        private void CleanPanel1()
+        {
+            txtFirstName.Text = "";
+            txtLastName.Text = "";
+            txtEmailAddress.Text = "";
+            txtPhoneNumber.Text = "";
+        }
     }
 }
