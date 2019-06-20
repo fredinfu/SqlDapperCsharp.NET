@@ -16,7 +16,7 @@ namespace FormUI
 
         public string FullInfo
         {
-            get { return $"{FirstName} {LastName} ({EmailAddress})"; }
+            get { return $"{FirstName} {LastName} ({EmailAddress}) {PhoneNumber}"; }
         }
 
     }

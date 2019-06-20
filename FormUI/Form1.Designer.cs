@@ -45,6 +45,7 @@
             this.btnCreate = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
+            this.idPerson = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +57,7 @@
             this.peopleListBox.Name = "peopleListBox";
             this.peopleListBox.Size = new System.Drawing.Size(503, 308);
             this.peopleListBox.TabIndex = 0;
+            this.peopleListBox.SelectedIndexChanged += new System.EventHandler(this.PeopleListBox_SelectedIndexChanged);
             // 
             // lblLastName
             // 
@@ -85,6 +87,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.idPerson);
             this.panel1.Controls.Add(this.btnCreate);
             this.panel1.Controls.Add(this.btnRemove);
             this.panel1.Controls.Add(this.btnUpdate);
@@ -179,7 +182,7 @@
             // 
             this.btnCreate.Location = new System.Drawing.Point(147, 216);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(161, 23);
+            this.btnCreate.Size = new System.Drawing.Size(161, 33);
             this.btnCreate.TabIndex = 6;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = true;
@@ -189,21 +192,32 @@
             // 
             this.btnUpdate.Location = new System.Drawing.Point(56, 177);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(161, 23);
+            this.btnUpdate.Size = new System.Drawing.Size(161, 33);
             this.btnUpdate.TabIndex = 7;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Visible = false;
+            this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // btnRemove
             // 
             this.btnRemove.Location = new System.Drawing.Point(235, 177);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(161, 23);
+            this.btnRemove.Size = new System.Drawing.Size(161, 33);
             this.btnRemove.TabIndex = 9;
             this.btnRemove.Text = "Remove Person";
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Visible = false;
+            // 
+            // idPerson
+            // 
+            this.idPerson.AutoSize = true;
+            this.idPerson.Location = new System.Drawing.Point(186, 17);
+            this.idPerson.Name = "idPerson";
+            this.idPerson.Size = new System.Drawing.Size(68, 17);
+            this.idPerson.TabIndex = 6;
+            this.idPerson.Text = "Hidden Id";
+            this.idPerson.Visible = false;
             // 
             // Form1
             // 
@@ -244,6 +258,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.Button btnStartCreatePerson;
+        private System.Windows.Forms.Label idPerson;
     }
 }
 

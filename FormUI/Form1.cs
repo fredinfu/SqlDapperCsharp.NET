@@ -17,6 +17,7 @@ namespace FormUI
         {
             InitializeComponent();
             GetAllData();
+            txtSearch.Focus();
         }
 
         private void GetAllData()
@@ -30,6 +31,7 @@ namespace FormUI
         {
             peopleListBox.DataSource = people;
             peopleListBox.DisplayMember = "FullInfo";
+            peopleListBox.SelectedItems.Clear();
         }
 
         private void BtnSearch_Click(object sender, EventArgs e)
@@ -67,19 +69,8 @@ namespace FormUI
                 return;
             }
 
-            var person = new Person
-            {
-                FirstName = txtFirstName.Text,
-                LastName = txtLastName.Text,
-                EmailAddress = txtEmailAddress.Text,
-                PhoneNumber = txtPhoneNumber.Text
-            };
+            CreatePerson();
 
-            var dataAccess = new DataAccess();
-            people = dataAccess.AddPeople(person);
-            CleanPanel1();
-            GetAllData();
-            txtFirstName.Focus();
         }
 
         private bool SubmitValidation()
@@ -95,6 +86,80 @@ namespace FormUI
             txtLastName.Text = "";
             txtEmailAddress.Text = "";
             txtPhoneNumber.Text = "";
+        }
+
+        private void PeopleListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (peopleListBox.SelectedItem == null)
+            {
+                btnCreate.Visible = true;
+                btnRemove.Visible = false;
+                btnUpdate.Visible = false;
+                CleanPanel1();
+                txtSearch.Focus();
+                return;
+            }
+            var person = peopleListBox.SelectedItem;
+            BindPersonUpdateForm((Person)person);
+        }
+
+        private void BindPersonUpdateForm(Person person)
+        {
+            txtFirstName.Text = person.FirstName;
+            txtLastName.Text = person.LastName;
+            txtEmailAddress.Text = person.EmailAddress;
+            txtPhoneNumber.Text = person.PhoneNumber;
+            idPerson.Text = person.Id.ToString();
+            btnUpdate.Visible = true;
+            btnCreate.Visible = false;
+        }
+
+
+        private void CreatePerson()
+        {
+            var person = new Person
+            {
+                FirstName = txtFirstName.Text,
+                LastName = txtLastName.Text,
+                EmailAddress = txtEmailAddress.Text,
+                PhoneNumber = txtPhoneNumber.Text
+            };
+
+            var dataAccess = new DataAccess();
+            people = dataAccess.AddPeople(person);
+            CleanPanel1();
+            GetAllData();
+            txtFirstName.Focus();
+        }
+
+        private void UpdatePerson()
+        {
+            var person = new Person
+            {
+                Id = int.Parse(idPerson.Text),
+                FirstName = txtFirstName.Text,
+                LastName = txtLastName.Text,
+                EmailAddress = txtEmailAddress.Text,
+                PhoneNumber = txtPhoneNumber.Text
+            };
+
+            var dataAccess = new DataAccess();
+            people = dataAccess.UpdatePeople(person);
+            txtSearch.Text = person.LastName;
+            SearchByText();
+            txtSearch.Focus();
+        }
+
+        private void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            if (!SubmitValidation())
+            {
+                MessageBox.Show("First Name, Last Name and Email cannot be empty!");
+                txtFirstName.Focus();
+                return;
+            }
+
+            UpdatePerson();
         }
     }
 }

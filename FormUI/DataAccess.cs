@@ -38,6 +38,15 @@ namespace FormUI
             }
         }
 
+        public List<Person> UpdatePeople(Person person)
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("SampleDbStandard")))
+            {
+                var res = connection.Query<Person>("dbo.People_Update @id, @FirstName, @LastName, @EmailAddress, @PhoneNumber", person).ToList();
+                return res;
+            }
+        }
+
     }
 
     public class Parameters
